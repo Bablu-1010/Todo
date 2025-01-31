@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1>Task Manager</h1>
+            <button onclick="location.reload()" class="home-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Home
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="add-todo-section">
+            <h2>Add New Task</h2>
+            <form id="todoForm">
+                <div class="form-group">
+                    <input type="text" id="title" placeholder="Task Title" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="description" placeholder="Task Description" rows="3"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="time" id="time" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="priority">
+                            <option value="low">Low Priority</option>
+                            <option value="medium">Medium Priority</option>
+                            <option value="high">High Priority</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="add-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                    Add Task
+                </button>
+            </form>
+        </div>
+
+        <div class="todo-list-section">
+            <div class="list-header">
+                <h2>Tasks</h2>
+                <div class="filters">
+                    <select id="filterPriority" onchange="filterTodos()">
+                        <option value="all">All Priorities</option>
+                        <option value="high">High Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="low">Low Priority</option>
+                    </select>
+                    <input type="date" id="filterDate" onchange="filterTodos()">
+                </div>
+            </div>
+            <div id="todoList" class="todo-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
